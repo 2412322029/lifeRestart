@@ -119,7 +119,13 @@ export default ({
     UI_Support_Programmer: 'Programmer',
     UI_Support_Designer: 'Designer',
 
+    M_NoRank: 'There is no rank',
+
     F_RemakeTimes: 'Remake {0} Times',
     F_AchievementCount: 'Achievement {0}',
     F_TalentSelection: '{name} ({description})',
+    F_TalentConflict: 'Conflict with talent ({0})',
+    F_TalentSelectLimit: 'Talent select limit {0}',
+    F_TalentSelectNotComplect: 'Please select {0} talent',
+    F_PropertyPointLeft: 'You have left {0} property point'
 });

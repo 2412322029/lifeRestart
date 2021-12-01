@@ -2,6 +2,7 @@ export default class Achievement extends ui.view.DefaultTheme.AchievementUI {
     constructor() {
         super();
         this.btnBack.on(Laya.Event.CLICK, this, () => $ui.switchView(UI.pages.MAIN));
+        this.btnRank.on(Laya.Event.CLICK, this, $$event, ['message', ['M_NoRank']]);
         this.listAchievements.renderHandler = new Laya.Handler(this, this.onRenderAchievement);
         this.listAchievements.scrollBar.elasticDistance = 150;
     }

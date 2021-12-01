@@ -119,6 +119,11 @@ class App{
         $$on('achievement', achievement => {
             $ui.popup(UI.popups.ACHIEVEMENT, {achievement});
         })
+        $$on('message', ([message, ...args]) => {
+            $ui.popup(UI.popups.MESSAGE, {message: $_.format(
+                $lang[message], ...args
+            ) });
+        })
     }
 
     async start({

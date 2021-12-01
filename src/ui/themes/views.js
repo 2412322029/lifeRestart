@@ -11,6 +11,7 @@ const pages = {
 
 const popups = {
     ACHIEVEMENT: 'POPUP_ACHIEVEMENT',
+    MESSAGE: 'POPUP_MESSAGE',
 };
 
 const cyber = {
@@ -26,6 +27,7 @@ const cyber = {
     },
     popups: {
         [popups.ACHIEVEMENT]: "cyber/popup/achievementPopup",
+        [popups.MESSAGE]: "message",
     },
     configs: {
         bgColor: '#04131f',
@@ -100,6 +102,7 @@ const dark = {
     },
     popups: {
         [popups.ACHIEVEMENT]: "default/popup/achievementPopup",
+        [popups.MESSAGE]: "message",
     },
     configs: {
         bgColor: '#222831',
@@ -475,6 +478,7 @@ const light = {
     },
     popups: {
         [popups.ACHIEVEMENT]: "default/popup/achievementPopup",
+        [popups.MESSAGE]: "message",
     },
     configs: {
         bgColor: '#ffffff',

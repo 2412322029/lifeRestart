@@ -26,7 +26,7 @@ export default class Talent extends ui.view.DefaultTheme.TalentUI {
 
     onClickNext() {
         if(this.#selected.size < core.talentSelectLimit) {
-            return;
+            return $$event('message', ['F_TalentSelectNotComplect', core.talentSelectLimit]);
         }
 
         const talents = [...this.#selected].map(index => this.listTalents.array[index]);
@@ -53,6 +53,16 @@ export default class Talent extends ui.view.DefaultTheme.TalentUI {
                 this.#selected.delete(index);
             } else {
                 if(this.#selected.size >= core.talentSelectLimit) {
+                    return $$event('message', ['F_TalentSelectLimit', core.talentSelectLimit]);
+                }
+                const exclusive = core.exclusive(
+                    [...this.#selected].map(index => this.listTalents.array[index].id),
+                    this.listTalents.array[index].id
+                );
+                if(exclusive != null) {
+                    for(const {name, id} of this.listTalents.array)
+                        if(exclusive == id)
+                            return $$event('message', ['F_TalentConflict', name]);
                     return;
                 }
                 this.#selected.add(index);

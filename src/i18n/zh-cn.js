@@ -119,7 +119,13 @@ export default ({
     UI_Support_Programmer: '打赏程序(顿顿饭)',
     UI_Support_Designer: '打赏策划(爱发电)',
 
+    M_NoRank: '别卷了，没有排行榜',
+
     F_RemakeTimes: '已重开{0}次',
     F_AchievementCount: '成就达成{0}个',
     F_TalentSelection: '{name}（{description}）',
+    F_TalentConflict: '与已选的「{0}」天赋冲突',
+    F_TalentSelectLimit: '只能选 {0} 个天赋',
+    F_TalentSelectNotComplect: '要选满{0}个天赋',
+    F_PropertyPointLeft: '你还有 {0} 属性点没有分配完'
 });

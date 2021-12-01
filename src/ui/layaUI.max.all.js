@@ -515,3 +515,25 @@ var LoadingUI=(function(_super){
 		LoadingUI.uiView={"type":"View","props":{"width":1125,"runtime":"Laya.runtime.ViewBase","height":2436},"child":[{"type":"Sprite","props":{"y":0,"x":0,"alpha":0.3},"child":[{"type":"Rect","props":{"width":2000,"lineWidth":1,"height":3000,"fillColor":"#000000"}}]},{"type":"Box","props":{"width":200,"scaleY":2,"scaleX":2,"height":200,"centerY":0,"centerX":0},"child":[{"type":"Animation","props":{"y":100,"x":100,"source":"view/CyberTheme/animation/circleFlash.ani","autoPlay":true}},{"type":"Image","props":{"skin":"images/resource/circle.png","renderType":"mask"}}]},{"type":"Label","props":{"text":"UI_Loading","fontSize":80,"font":"Impact","color":"#ffffff","centerY":400,"centerX":0}}]};
 		return LoadingUI;
 	})(View);
+var MessagePopupUI=(function(_super){
+		function MessagePopupUI(){
+			
+		    this.boxBg=null;
+		    this.message=null;
+
+			MessagePopupUI.__super.call(this);
+		}
+
+		CLASS$(MessagePopupUI,'ui.view.MessagePopupUI',_super);
+		var __proto__=MessagePopupUI.prototype;
+		__proto__.createChildren=function(){
+		    			View.regComponent("Laya.runtime.ColorfulBox",Laya.runtime.ColorfulBox);
+
+			laya.ui.Component.prototype.createChildren.call(this);
+			this.createView(MessagePopupUI.uiView);
+
+		}
+
+		MessagePopupUI.uiView={"type":"View","props":{"width":1100,"mouseThrough":true,"mouseEnabled":false,"height":150},"child":[{"type":"Box","props":{"var":"boxBg","top":10,"runtime":"Laya.runtime.ColorfulBox","right":10,"name":"boxBg","left":10,"bottom":10,"alpha":0.75}},{"type":"Label","props":{"var":"message","text":"消息","right":50,"name":"message","left":50,"fontSize":60,"font":"SimHei","color":"#ffffff","centerY":0,"align":"center"}}]};
+		return MessagePopupUI;
+	})(View);

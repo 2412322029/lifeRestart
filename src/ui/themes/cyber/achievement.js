@@ -7,6 +7,7 @@ export default class CyberAchievement extends ui.view.CyberTheme.CyberAchievemen
         this.#state = {min, max};
         this.btnStatistics.on(Laya.Event.CLICK, this, ()=>this.switch('statistics'));
         this.btnAchievement.on(Laya.Event.CLICK, this, ()=>this.switch('achievement'));
+        this.btnRank.on(Laya.Event.CLICK, this, $$event, ['message', ['M_NoRank']]);
 
         this.listAchievements.renderHandler = new Laya.Handler(this, this.onRenderAchievement);
         this.listAchievements.scrollBar.elasticDistance = 150;

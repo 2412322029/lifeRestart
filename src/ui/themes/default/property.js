@@ -57,8 +57,9 @@ export default class Property extends ui.view.DefaultTheme.PropertyUI {
     }
 
     next() {
-        if (this.total < this.#propertyPoints) {
-            return;
+        const left = this.#propertyPoints - this.total;
+        if (left > 0) {
+            return $$event('message', ['F_PropertyPointLeft', left]);
         }
         $ui.switchView(
             UI.pages.TRAJECTORY,
