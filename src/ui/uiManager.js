@@ -153,14 +153,14 @@ export default class UIManager {
 
     async showDialog(dialogName, args, actions) {
         const className = this.#pages[dialogName];
-        const dialog = await this.getView(className, args, actions?.load, viewName, 'pages');
-
-        dialog.init(args);
+        const dialog = await this.getView(className, args, actions?.load, dialogName, 'pages');
+        dialog.centerX = dialog.centerY = 0;
+        dialog.init?.(args);
         this.#dialogLayer.addChild(dialog);
 
         const open = actions?.open || (async () => {
-            this.#dialogLayer.scaleX = 0;
-            this.#dialogLayer.scaleY = 0;
+            dialog.scaleX = 0;
+            dialog.scaleY = 0;
             await Laya.promises.Tween.to(dialog, { scaleX: 1, scaleY: 1 }, 300, Laya.Ease.backOut);
         });
         await open(dialog);
