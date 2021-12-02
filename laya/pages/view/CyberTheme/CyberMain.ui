@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":90,
+    "selecteID":12,
     "props":{"y":1218,"x":562,"width":1125,"sceneColor":"#000000","sceneBg":"laya/views/view/CyberTheme/CyberMain.png","runtime":"Laya.runtime.ViewBase","height":2436,"anchorY":0.5,"anchorX":0.5},
     "nodeParent":-1,
     "label":"View",
@@ -130,7 +130,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"text":"UI_Cyber_Theme_Art_Design","right":50,"fontSize":48,"font":"方正像素12","color":"#00fffd","centerY":1165,"anchorY":0.5,"anchorX":0.5},
+            "props":{"text":"UI_Cyber_Theme_Art_Design","right":50,"fontSize":48,"font":"方正像素12","color":"#00fffd","bottom":30,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
