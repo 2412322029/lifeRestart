@@ -38,15 +38,16 @@ globalThis.$$copy = async text => {
     const result = await navigator.permissions.query({ name: "clipboard-write" })
     if (result.state == "granted" || result.state == "prompt") {
         navigator.clipboard.writeText(text)
-        return;
+        return true;
     }
     const input = document.createElement('input');
     input.setAttribute('style', 'opacity: 0;');
     document.body.appendChild(input);
     input.value = text;
     input.select();
-    document.execCommand("copy");
+    const r = document.execCommand("copy");
     document.body.removeChild(input);
+    return r;
 }
 
 globalThis.$$read = async ()=>{
@@ -58,10 +59,10 @@ globalThis.$$read = async ()=>{
     input.setAttribute('style', 'opacity: 0;');
     document.body.appendChild(input);
     input.focus();
-    document.execCommand("paste");
+    const r = document.execCommand("paste");
     const text = input.value;
     document.body.removeChild(input);
-    return text;
+    return r?text:r;
 };
 
 const core = new Life();

@@ -5,13 +5,25 @@ export default class SaveLoad extends ui.view.SaveLoadUI {
             await this.close();
             $ui.switchView(UI.pages.MAIN);
         });
-        this.btnRead.on(Laya.Event.CLICK, this,()=>$$copy(this.input.text = this.data));
+        this.btnRead.on(Laya.Event.CLICK, this, async ()=>{
+            const result = await $$copy(this.input.text = this.data);
+            $$event('message', [result? 'UI_CopySuccess': 'UI_CopyFaild']);
+        });
         this.btnWrite.on(Laya.Event.CLICK, this, async ()=>{
             const text = await $$read();
-            if(text) {
-                this.data = this.input.text = text;
+            if(text == false) {
+                this.data = [
+                    this.input.text,
+                    'UI_PasteFaildDecodeSuccess',
+                    'UI_PasteFaildDecodeFaild'
+                ];
             } else {
-                this.data = this.input.text;
+                this.input.text = text;
+                this.data = [
+                    text,
+                    'UI_PasteSuccessDecodeSuccess',
+                    'UI_PasteSuccessDecodeFaild'
+                ];
             }
         });
 
@@ -40,7 +52,7 @@ export default class SaveLoad extends ui.view.SaveLoadUI {
                 const file = e.target.files[0];
                 if(!file) return;
                 const reader = new FileReader();
-                reader.onload = () => this.data = reader.result;
+                reader.onload = () => this.data = [reader.result];
                 reader.readAsText(file);
                 document.body.removeChild(file);
             };
@@ -67,17 +79,17 @@ export default class SaveLoad extends ui.view.SaveLoadUI {
         return JSON.stringify(data);
     }
 
-    set data(v) {
+    set data([v, success = 'UI_LoadSuccess', faild = 'UI_LoadFaild']) {
         try {
             const data = JSON.parse(v);
             for(const key in data)
                 localStorage.setItem(key, data[key]);
-            $$event('message', ['UI_LoadSuccess']);
+            $$event('message', [success]);
             $ui.theme = $ui.theme;
             this.btnClose.event(Laya.Event.CLICK);
         } catch (e) {
             console.error(e);
-            $$event('message', ['UI_LoadFaild']);
+            $$event('message', [faild]);
         }
     }
 }

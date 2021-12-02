@@ -127,6 +127,14 @@ export default ({
     UI_LoadSuccess: '读档成功！',
     UI_LoadFaild: '读档失败！',
 
+    UI_CopySuccess: '成功复制存档到剪贴板',
+    UI_CopyFaild: '复制存档到剪贴板失败，请手动复制存档内容',
+
+    UI_PasteSuccessDecodeSuccess: '读档成功！',
+    UI_PasteSuccessDecodeFaild: '粘贴剪贴板存档内容成功，但剪贴板内容读档失败',
+    UI_PasteFaildDecodeSuccess: '粘贴剪贴板存档内容失败，使用输入的内容读档成功',
+    UI_PasteFaildDecodeFaild: '粘贴剪贴板存档内容失败，使用输入的内容读档失败',
+
     M_NoRank: '别卷了，没有排行榜',
 
     F_RemakeTimes: '已重开{0}次',

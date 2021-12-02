@@ -124,6 +124,14 @@ export default ({
     UI_Read: 'Copy',
     UI_Write: 'Paste',
 
+    UI_CopySuccess: 'Copy to clipboard success',
+    UI_CopyFaild: 'Copy to clipboard faild',
+
+    UI_PasteSuccessDecodeSuccess: 'Load Success!',
+    UI_PasteSuccessDecodeFaild: 'Paste success, but load faild!',
+    UI_PasteFaildDecodeSuccess: 'Paste faild, use input load success!',
+    UI_PasteFaildDecodeFaild: 'Paste faild, use input load faild!',
+
     UI_LoadSuccess: 'Load Success!',
     UI_LoadFaild: 'Load Faild!',
 
