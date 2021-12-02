@@ -7,7 +7,6 @@ export default class UIManager {
             stage = Laya.stage;
         }
         this.#stage = stage;
-        this.theme = 'default';
 
         stage.addChild(this.#viewLayer);
         this.#viewLayer.zOrder = 1;
@@ -26,7 +25,16 @@ export default class UIManager {
         this.#popupLayer.top =
         this.#popupLayer.bottom =
         this.#popupLayer.left =
-        this.#popupLayer.right = 0;
+        this.#popupLayer.right =
+        this.#dialogMask.top =
+        this.#dialogMask.bottom =
+        this.#dialogMask.left =
+        this.#dialogMask.right = 0;
+        this.#dialogMask.graphics.drawRect(0, 0, 5000, 5000, '#000000');
+        this.#dialogMask.alpha = 0.4;
+        this.#dialogMask.on(Laya.Event.CLICK, this, ()=>{
+            this.#dialogStack[this.#dialogStack.length - 1]?.close?.();
+        })
     }
 
     static #instance = {};
@@ -37,9 +45,10 @@ export default class UIManager {
     #viewLayer = new Laya.Panel();
     #dialogLayer = new Laya.Panel();
     #popupLayer = new Laya.Panel();
+    #dialogMask = new Laya.Sprite();
     #viewMap = new Map();
     #class = new Map();
-    #theme = 'default';
+    #dialogStack = [];
 
     static get inst() {
         return this.getInstance();
@@ -95,8 +104,12 @@ export default class UIManager {
         // check if view is already loaded
         let view = await this.#viewMap.get(className);
 
+        let timeout;
         if(this.#loading) {
-            this.#stage.addChild(this.#loading);
+            timeout = setTimeout(
+                ()=>this.#stage.addChild(this.#loading),
+                3000
+            );
         }
         const onProgress = this.#loading?.onProgress;
 
@@ -121,7 +134,7 @@ export default class UIManager {
             const resourceList = await view.constructor.load?.(args);
             await this.loadRes(resourceList, preload, onProgress);
         }
-
+        if(timeout) clearTimeout(timeout);
         this.#loading?.removeSelf();
 
         this.#config(view, viewName, type);
@@ -151,12 +164,34 @@ export default class UIManager {
         }
     }
 
+    #showDialogStack() {
+        if(this.#dialogStack.length == 0) {
+            this.#dialogLayer.visible = false;
+            return;
+        }
+        this.#dialogLayer.visible = true;
+        this.#dialogStack.forEach((dialog, i)=>{
+            this.#dialogLayer.addChild(dialog);
+            dialog.zOrder = i;
+        })
+        this.#dialogLayer.addChild(this.#dialogMask);
+        const l = this.#dialogStack.length;
+        this.#dialogMask.zOrder = l -1;
+        this.#dialogStack[l -1].zOrder = l;
+    }
+
     async showDialog(dialogName, args, actions) {
         const className = this.#pages[dialogName];
         const dialog = await this.getView(className, args, actions?.load, dialogName, 'pages');
-        dialog.centerX = dialog.centerY = 0;
+
+        const index = this.#dialogStack.indexOf(dialog);
+        if(index != -1) {
+            this.#dialogStack.splice(index, 1);
+        }
+        this.#dialogStack.push(dialog);
         dialog.init?.(args);
-        this.#dialogLayer.addChild(dialog);
+        dialog.centerX = dialog.centerY = 0;
+        this.#showDialogStack();
 
         const open = actions?.open || (async () => {
             dialog.scaleX = 0;
@@ -164,9 +199,20 @@ export default class UIManager {
             await Laya.promises.Tween.to(dialog, { scaleX: 1, scaleY: 1 }, 300, Laya.Ease.backOut);
         });
         await open(dialog);
-        dialog.close = actions?.close || (async () => {
-            await Laya.promises.Tween.to(dialog, { scaleX: 0, scaleY: 0 }, 300, Laya.Ease.backOut);
-        });;
+        dialog.mouseThrough = true;
+        dialog.mouseEnabled = true;
+        dialog.close = async ()=>{
+            if(actions?.close) {
+                await actions.close();
+            } else {
+                await Laya.promises.Tween.to(dialog, { scaleX: 0, scaleY: 0 }, 300, Laya.Ease.strongIn);
+            }
+            const index = this.#dialogStack.indexOf(dialog);
+            if(index != -1) {
+                this.#dialogStack.splice(index, 1);
+            }
+            this.#showDialogStack();
+        }
 
         this.#dialogLayer.addChild(dialog);
     }
@@ -180,7 +226,8 @@ export default class UIManager {
     }
 
     clearAllDialog() {
-        this.#dialogLayer.removeChildren();
+        this.#dialogStack = [];
+        this.#showDialogStack();
     }
 
     #config(view, key, type) {
@@ -279,23 +326,27 @@ export default class UIManager {
         return this.#currentView;
     }
 
+    get currentDialog() {
+        return this.#dialogStack[this.#dialogStack.length -1];
+    }
+
     get theme() {
-        return this.#theme;
+        return localStorage.getItem('theme');
     }
     set theme(value) {
-        this.#theme = value;
+        localStorage.setItem('theme', value);
         this.#stage.bgColor = this.#configs.bgColor;
         document?.querySelector?.('meta[name="theme-color"]')?.setAttribute?.('content', this.#configs.bgColor);
     }
 
     get #pages() {
-        return UIManager.theme(this.#theme, 'pages');
+        return UIManager.theme(this.theme, 'pages');
     }
     get #popups() {
-        return UIManager.theme(this.#theme, 'popups');
+        return UIManager.theme(this.theme, 'popups');
     }
     get #configs() {
-        return UIManager.theme(this.#theme, 'configs');
+        return UIManager.theme(this.theme, 'configs');
     }
     get common() {
         return this.#configs.common;

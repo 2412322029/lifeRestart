@@ -133,6 +133,15 @@ class App{
         this.resigterEvent();
         this.#initLaya();
         globalThis.$ui = UIManager.getInstance();
+
+        if(theme=='default') {
+            if(!localStorage.getItem('__')) {
+                localStorage.setItem('__', 1);
+                localStorage.setItem('theme', 'cyber');
+            }
+            theme = localStorage.getItem('theme');
+        }
+
         $ui.theme = theme;
         await this.#setLanguage(language);
         await $ui.setLoading(UI.pages.LOADING);

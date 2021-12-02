@@ -7,6 +7,7 @@ const pages = {
     SUMMARY: 'SUMMARY',
     ACHIEVEMENT: 'ACHIEVEMENT',
     THANKS: 'THANKS',
+    THEMES: 'THEMES',
 };
 
 const popups = {
@@ -24,6 +25,7 @@ const cyber = {
         [pages.SUMMARY]: "cyber/summary",
         [pages.ACHIEVEMENT]: "cyber/achievement",
         [pages.THANKS]: "default/thanks",
+        [pages.THEMES]: 'themes',
     },
     popups: {
         [popups.ACHIEVEMENT]: "cyber/popup/achievementPopup",
@@ -53,6 +55,14 @@ const cyber = {
             ],
         },
         pages: {
+            [pages.MAIN]: {
+                vars: {
+                    btnThemes: {
+                        defaultColor: '#cccccc',
+                        radius: 100,
+                    },
+                }
+            },
             [pages.THANKS]: {
                 vars: {
                     btnBack: {
@@ -84,6 +94,24 @@ const cyber = {
                         radius: 4,
                     },
                 },
+            },
+            [pages.THEMES]: {
+                vars: {
+                    btnOK: {
+                        defaultColor: '#28b070',
+                        defaultLabel: '#ffffff',
+                        hoverColor: '#00ff00',
+                        hoverLabel: '#ffffff',
+                        radius: 80,
+                    },
+                    btnClose: {
+                        defaultColor: '#eb3941',
+                        defaultLabel: '#ffffff',
+                        hoverColor: '#ff0000',
+                        hoverLabel: '#ffffff',
+                        radius: 80,
+                    },
+                }
             }
         }
     }
@@ -99,6 +127,7 @@ const dark = {
         [pages.SUMMARY]: "default/summary",
         [pages.ACHIEVEMENT]: "default/achievement",
         [pages.THANKS]: "default/thanks",
+        [pages.THEMES]: 'themes',
     },
     popups: {
         [popups.ACHIEVEMENT]: "default/popup/achievementPopup",
@@ -340,10 +369,13 @@ const dark = {
             [pages.MAIN]: {
                 vars: {
                     btnRemake: 'btn_main',
-                    labTitle: 'title',
-                    labSubTitle: 'title',
+                    btnThemes: {
+                        defaultColor: '#cccccc',
+                        radius: 100,
+                    },
                 },
                 names: {
+                    title: 'title',
                     btnSmall: 'btn_small',
                 }
             },
@@ -448,6 +480,24 @@ const dark = {
                         radius: 4,
                     },
                 },
+            },
+            [pages.THEMES]: {
+                vars: {
+                    btnOK: {
+                        defaultColor: '#28b070',
+                        defaultLabel: '#ffffff',
+                        hoverColor: '#00ff00',
+                        hoverLabel: '#ffffff',
+                        radius: 80,
+                    },
+                    btnClose: {
+                        defaultColor: '#eb3941',
+                        defaultLabel: '#ffffff',
+                        hoverColor: '#ff0000',
+                        hoverLabel: '#ffffff',
+                        radius: 80,
+                    },
+                }
             }
         },
         popups: {
@@ -475,6 +525,7 @@ const light = {
         [pages.SUMMARY]: "default/summary",
         [pages.ACHIEVEMENT]: "default/achievement",
         [pages.THANKS]: "default/thanks",
+        [pages.THEMES]: 'themes',
     },
     popups: {
         [popups.ACHIEVEMENT]: "default/popup/achievementPopup",
@@ -710,10 +761,13 @@ const light = {
             [pages.MAIN]: {
                 vars: {
                     btnRemake: 'btn_main',
-                    labTitle: 'title',
-                    labSubTitle: 'title',
+                    btnThemes: {
+                        defaultColor: '#cccccc',
+                        radius: 100,
+                    },
                 },
                 names: {
+                    title: 'title',
                     btnSmall: 'btn_small',
                 }
             },
@@ -818,6 +872,24 @@ const light = {
                         radius: 4,
                     }
                 },
+            },
+            [pages.THEMES]: {
+                vars: {
+                    btnOK: {
+                        defaultColor: '#28b070',
+                        defaultLabel: '#ffffff',
+                        hoverColor: '#00ff00',
+                        hoverLabel: '#ffffff',
+                        radius: 80,
+                    },
+                    btnClose: {
+                        defaultColor: '#eb3941',
+                        defaultLabel: '#ffffff',
+                        hoverColor: '#ff0000',
+                        hoverLabel: '#ffffff',
+                        radius: 80,
+                    },
+                }
             }
         },
         popups: {

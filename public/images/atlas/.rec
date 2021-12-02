@@ -35,9 +35,11 @@ P 3FA91C13 icon_github.png
 P AB934AEA icon_int@3x.png
 P F1A0724B icon_mny@3x.png
 P D5AADAC9 icon_rank@3x.png
+P 0806E5F3 icon_save.png
 P 2DB0325D icon_spr@3x.png
 P 2EFA541B icon_str@3x.png
 P 804842C9 icon_thanks@3x.png
+P 96DD5D94 icon_themes.png
 P 6ECB5FEC icon_up@3x.png
 D images/progress
 P E2BF0C93 progress_1@3x$bar.png
@@ -46,6 +48,10 @@ P E7F15BA7 progress_2$bar.png
 P 641A22BF progress_2.png
 P AF80A9AF progress_s$bar.png
 P 41417E8D progress_s.png
+D images/radio
+P CCF63014 radio_cyber.png
+P 040DE73C radio_dark.png
+P BA975F5A radio_light.png
 D images/resource
 P F3659301 bottombreath.png
 P 496D6FB9 circle.png
