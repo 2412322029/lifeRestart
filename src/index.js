@@ -34,6 +34,36 @@ globalThis.$$off = (tag, fn) => {
     if(listener) listener.delete(fn);
 }
 
+globalThis.$$copy = async text => {
+    const result = await navigator.permissions.query({ name: "clipboard-write" })
+    if (result.state == "granted" || result.state == "prompt") {
+        navigator.clipboard.writeText(data)
+        return;
+    }
+    const input = document.createElement('input');
+    input.setAttribute('style', 'opacity: 0;');
+    document.body.appendChild(input);
+    input.value = text;
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+}
+
+globalThis.$$read = async ()=>{
+    const result = await navigator.permissions.query({ name: "clipboard-read" })
+    if (result.state == "granted" || result.state == "prompt") {
+        return await navigator.clipboard.readText();
+    }
+    const input = document.createElement('input');
+    input.setAttribute('style', 'opacity: 0;');
+    document.body.appendChild(input);
+    input.focus();
+    document.execCommand("paste");
+    const text = input.value;
+    document.body.removeChild(input);
+    return text;
+};
+
 const core = new Life();
 const game = new App();
 globalThis.core = core;

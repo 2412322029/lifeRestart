@@ -8,6 +8,7 @@ const pages = {
     ACHIEVEMENT: 'ACHIEVEMENT',
     THANKS: 'THANKS',
     THEMES: 'THEMES',
+    SAVELOAD: 'SAVELOAD',
 };
 
 const popups = {
@@ -26,6 +27,7 @@ const cyber = {
         [pages.ACHIEVEMENT]: "cyber/achievement",
         [pages.THANKS]: "default/thanks",
         [pages.THEMES]: 'themes',
+        [pages.SAVELOAD]: 'saveload',
     },
     popups: {
         [popups.ACHIEVEMENT]: "cyber/popup/achievementPopup",
@@ -59,6 +61,16 @@ const cyber = {
                 vars: {
                     btnThemes: {
                         defaultColor: '#cccccc',
+                        radius: 100,
+                    },
+                    btnSaveLoad: {
+                        defaultColor: '#5865f2',
+                        defaultStroke: '#eeeeee',
+                        defaultLabel: '#eeeeee',
+                        hoverColor: '#1160b0',
+                        hoverStroke: '#eeeeee',
+                        hoverLabel: '#eeeeee',
+                        lineWidth: 0,
                         radius: 100,
                     },
                 }
@@ -112,7 +124,38 @@ const cyber = {
                         radius: 80,
                     },
                 }
-            }
+            },
+            [pages.SAVELOAD]: {
+                vars: {
+                    btnClose: {
+                        defaultColor: '#eb3941',
+                        hoverColor: '#ff0000',
+                    },
+                    btnSave: {
+                        defaultColor: '#007046',
+                        hoverColor: '#76f190',
+                    },
+                    btnRead: {
+                        defaultColor: '#007046',
+                        hoverColor: '#76f190',
+                    },
+                    btnLoad: {
+                        defaultColor: '#fc5531',
+                        hoverColor: '#f28b54',
+                    },
+                    btnWrite: {
+                        defaultColor: '#fc5531',
+                        hoverColor: '#f28b54',
+                    },
+                },
+                names: {
+                    btnSmall: {
+                        radius: 80,
+                        defaultLabel: '#ffffff',
+                        hoverLabel: '#ffffff',
+                    }
+                }
+            },
         }
     }
 }
@@ -128,6 +171,7 @@ const dark = {
         [pages.ACHIEVEMENT]: "default/achievement",
         [pages.THANKS]: "default/thanks",
         [pages.THEMES]: 'themes',
+        [pages.SAVELOAD]: 'saveload',
     },
     popups: {
         [popups.ACHIEVEMENT]: "default/popup/achievementPopup",
@@ -373,6 +417,16 @@ const dark = {
                         defaultColor: '#cccccc',
                         radius: 100,
                     },
+                    btnSaveLoad: {
+                        defaultColor: '#5865f2',
+                        defaultStroke: '#eeeeee',
+                        defaultLabel: '#eeeeee',
+                        hoverColor: '#1160b0',
+                        hoverStroke: '#eeeeee',
+                        hoverLabel: '#eeeeee',
+                        lineWidth: 0,
+                        radius: 100,
+                    },
                 },
                 names: {
                     title: 'title',
@@ -498,7 +552,38 @@ const dark = {
                         radius: 80,
                     },
                 }
-            }
+            },
+            [pages.SAVELOAD]: {
+                vars: {
+                    btnClose: {
+                        defaultColor: '#eb3941',
+                        hoverColor: '#ff0000',
+                    },
+                    btnSave: {
+                        defaultColor: '#007046',
+                        hoverColor: '#76f190',
+                    },
+                    btnRead: {
+                        defaultColor: '#007046',
+                        hoverColor: '#76f190',
+                    },
+                    btnLoad: {
+                        defaultColor: '#fc5531',
+                        hoverColor: '#f28b54',
+                    },
+                    btnWrite: {
+                        defaultColor: '#fc5531',
+                        hoverColor: '#f28b54',
+                    },
+                },
+                names: {
+                    btnSmall: {
+                        radius: 80,
+                        defaultLabel: '#ffffff',
+                        hoverLabel: '#ffffff',
+                    }
+                }
+            },
         },
         popups: {
             [popups.ACHIEVEMENT]: {
@@ -526,6 +611,7 @@ const light = {
         [pages.ACHIEVEMENT]: "default/achievement",
         [pages.THANKS]: "default/thanks",
         [pages.THEMES]: 'themes',
+        [pages.SAVELOAD]: 'saveload',
     },
     popups: {
         [popups.ACHIEVEMENT]: "default/popup/achievementPopup",
@@ -765,6 +851,16 @@ const light = {
                         defaultColor: '#cccccc',
                         radius: 100,
                     },
+                    btnSaveLoad: {
+                        defaultColor: '#5865f2',
+                        defaultStroke: '#eeeeee',
+                        defaultLabel: '#eeeeee',
+                        hoverColor: '#1160b0',
+                        hoverStroke: '#eeeeee',
+                        hoverLabel: '#eeeeee',
+                        lineWidth: 0,
+                        radius: 100,
+                    },
                 },
                 names: {
                     title: 'title',
@@ -890,7 +986,38 @@ const light = {
                         radius: 80,
                     },
                 }
-            }
+            },
+            [pages.SAVELOAD]: {
+                vars: {
+                    btnClose: {
+                        defaultColor: '#eb3941',
+                        hoverColor: '#ff0000',
+                    },
+                    btnSave: {
+                        defaultColor: '#007046',
+                        hoverColor: '#76f190',
+                    },
+                    btnRead: {
+                        defaultColor: '#007046',
+                        hoverColor: '#76f190',
+                    },
+                    btnLoad: {
+                        defaultColor: '#fc5531',
+                        hoverColor: '#f28b54',
+                    },
+                    btnWrite: {
+                        defaultColor: '#fc5531',
+                        hoverColor: '#f28b54',
+                    },
+                },
+                names: {
+                    btnSmall: {
+                        radius: 80,
+                        defaultLabel: '#ffffff',
+                        hoverLabel: '#ffffff',
+                    }
+                }
+            },
         },
         popups: {
             [popups.ACHIEVEMENT]: {

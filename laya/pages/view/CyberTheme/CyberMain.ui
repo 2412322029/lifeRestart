@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":89,
+    "selecteID":90,
     "props":{"y":1218,"x":562,"width":1125,"sceneColor":"#000000","sceneBg":"laya/views/view/CyberTheme/CyberMain.png","runtime":"Laya.runtime.ViewBase","height":2436,"anchorY":0.5,"anchorX":0.5},
     "nodeParent":-1,
     "label":"View",
@@ -617,6 +617,45 @@
             "hasChild":true,
             "compId":88,
             "child":[
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":-300,"x":-100,"width":110,"runtime":"Laya.runtime.ScaleButton","height":110,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":88,
+                    "label":"Box",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":90,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"width":110,"var":"btnSaveLoad","runtime":"Laya.runtime.ColorfulBox","name":"btnSmall","height":110,"centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":90,
+                            "label":"Box(btnSaveLoad)",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":91,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"width":80,"skin":"images/icons/icon_save.png","height":80,"centerY":0,"centerX":0},
+                                    "nodeParent":91,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":92,
+                                    "child":[
+                                        ]
+                                }]
+                        }]
+                },
                 {
                     "x":30,
                     "type":"Box",

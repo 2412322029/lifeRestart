@@ -7,6 +7,7 @@ export default class CyberMain extends ui.view.CyberTheme.CyberMainUI {
         this.btnGithub.on(Laya.Event.CLICK, this, goto, ['github']);
         this.btnDiscord.on(Laya.Event.CLICK, this, goto, ['discord']);
         this.btnThemes.on(Laya.Event.CLICK, this, ()=>$ui.showDialog(UI.pages.THEMES));
+        this.btnSaveLoad.on(Laya.Event.CLICK, this, ()=>$ui.showDialog(UI.pages.SAVELOAD));
         this.on(Laya.Event.RESIZE, this, () => {
             const scale = Math.max(
                 this.width / this.imgBg.width,

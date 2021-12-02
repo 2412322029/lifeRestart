@@ -119,6 +119,14 @@ export default ({
     UI_Support_Programmer: '打赏程序(顿顿饭)',
     UI_Support_Designer: '打赏策划(爱发电)',
 
+    UI_Save: '存档',
+    UI_Load: '读档',
+    UI_Read: '复制',
+    UI_Write: '粘贴',
+
+    UI_LoadSuccess: '读档成功！',
+    UI_LoadFaild: '读档失败！',
+
     M_NoRank: '别卷了，没有排行榜',
 
     F_RemakeTimes: '已重开{0}次',

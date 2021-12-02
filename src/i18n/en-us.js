@@ -119,6 +119,14 @@ export default ({
     UI_Support_Programmer: 'Programmer',
     UI_Support_Designer: 'Designer',
 
+    UI_Save: 'Save',
+    UI_Load: 'Load',
+    UI_Read: 'Copy',
+    UI_Write: 'Paste',
+
+    UI_LoadSuccess: 'Load Success!',
+    UI_LoadFaild: 'Load Faild!',
+
     M_NoRank: 'There is no rank',
 
     F_RemakeTimes: 'Remake {0} Times',
