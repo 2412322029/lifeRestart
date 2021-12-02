@@ -44,6 +44,7 @@ export default class Trajectory extends ui.view.DefaultTheme.TrajectoryUI {
     #talents;
 
     init({propertyAllocate, talents}) {
+        this.boxParticle.visible = false;
         this.boxSpeed.visible = true;
         this.btnSummary.visible = false;
         this.#trajectoryItems = [];
@@ -88,6 +89,9 @@ export default class Trajectory extends ui.view.DefaultTheme.TrajectoryUI {
 
         this.renderTrajectory(age, content);
 
+        if(age >= 100) {
+            this.boxParticle.visible = true;
+        }
         Laya.timer.frameOnce(1, this, () => {
             this.panelTrajectory.scrollTo(0, this.panelTrajectory.contentHeight);
         });
