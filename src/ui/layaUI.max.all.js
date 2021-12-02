@@ -538,7 +538,7 @@ var MessagePopupUI=(function(_super){
 
 		}
 
-		MessagePopupUI.uiView={"type":"View","props":{"width":1100,"mouseThrough":true,"mouseEnabled":false,"height":150},"child":[{"type":"Box","props":{"var":"boxBg","top":10,"runtime":"Laya.runtime.ColorfulBox","right":10,"name":"boxBg","left":10,"bottom":10,"alpha":0.75}},{"type":"Label","props":{"var":"message","text":"消息","right":50,"name":"message","left":50,"fontSize":60,"font":"SimHei","color":"#ffffff","centerY":0,"align":"center"}}]};
+		MessagePopupUI.uiView={"type":"View","props":{"width":1100,"mouseThrough":true,"mouseEnabled":false,"height":230},"child":[{"type":"Box","props":{"var":"boxBg","top":10,"runtime":"Laya.runtime.ColorfulBox","right":10,"name":"boxBg","left":10,"bottom":10,"alpha":0.75}},{"type":"Label","props":{"wordWrap":true,"var":"message","text":"消息","right":50,"name":"message","left":50,"fontSize":60,"font":"SimHei","color":"#ffffff","centerY":0,"align":"center"}}]};
 		return MessagePopupUI;
 	})(View);
 var SaveLoadUI=(function(_super){
