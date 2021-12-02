@@ -37,7 +37,7 @@ globalThis.$$off = (tag, fn) => {
 globalThis.$$copy = async text => {
     const result = await navigator.permissions.query({ name: "clipboard-write" })
     if (result.state == "granted" || result.state == "prompt") {
-        navigator.clipboard.writeText(data)
+        navigator.clipboard.writeText(text)
         return;
     }
     const input = document.createElement('input');
