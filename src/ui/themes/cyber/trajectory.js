@@ -60,6 +60,7 @@ export default class CyberTrajectory extends ui.view.CyberTheme.CyberTrajectoryU
         const item = CyberTrajectory.#createComponent('boxTrajectoryItem');
         item.labContent = item.getChildByName('labContent');
         item.labAge = item.getChildByName('hboxAge').getChildByName('labAge');
+        item.boxGrade = item.getChildByName('boxGrade');
         return item;
     }
     #isEnd;
@@ -134,6 +135,10 @@ export default class CyberTrajectory extends ui.view.CyberTheme.CyberTrajectoryU
                 }
             }
         ).join('\n');
+        $_.deepMapSet(
+            item.boxGrade,
+            $ui.common.gradeBlk[content[content.length - 1].grade || 0]
+        );
         this.vboxTrajectory.addChild(item);
         this.#trajectoryItems.push(item);
         this.#trajectoryItems.forEach((item, index) => item.y = index);

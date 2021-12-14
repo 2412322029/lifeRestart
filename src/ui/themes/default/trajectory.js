@@ -35,6 +35,9 @@ export default class Trajectory extends ui.view.DefaultTheme.TrajectoryUI {
         item.labAge = item.getChildByName('hboxAge').getChildByName('labAge');
         const config = $ui.common.trajectoryItem;
         $_.deepMapSet(item, config.box);
+        item.grade = grade => {
+            $_.deepMapSet(item, config.grade[grade || 0]);
+        }
         item.getChildByName('hboxAge')._childs.forEach(child => child.color = config.ageColor);
         item.labContent.color = config.contentColor;
         return item;
@@ -111,6 +114,7 @@ export default class Trajectory extends ui.view.DefaultTheme.TrajectoryUI {
                 }
             }
         ).join('\n');
+        item.grade(content[content.length - 1].grade);
         this.vboxTrajectory.addChild(item);
         this.#trajectoryItems.push(item);
         this.#trajectoryItems.forEach((item, index) => item.y = index);

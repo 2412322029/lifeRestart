@@ -55,6 +55,24 @@ const cyber = {
                 '#b17cffff',
                 '#ffce45ff',
             ],
+            gradeBlk: [
+                {
+                    defaultColor: '#cccccc',
+                    hoverColor: '#cccccc',
+                },
+                {
+                    defaultColor: '#55fffe',
+                    hoverColor: '#55fffe',
+                },
+                {
+                    defaultColor: '#b17cff',
+                    hoverColor: '#b17cff',
+                },
+                {
+                    defaultColor: '#ffce45',
+                    hoverColor: '#ffce45',
+                },
+            ]
         },
         pages: {
             [pages.MAIN]: {
@@ -183,12 +201,26 @@ const dark = {
             defaultFontColor: '#eeeeee',
             trajectoryItem: {
                 box: {
-                    defaultColor: '#4a5361',
-                    defaultStroke: '#4a5361',
-                    hoverColor: '#4a5361',
-                    hoverStroke: '#4a5361',
                     filters: ()=>[new Laya.GlowFilter("#eeeeee", 8, 0, 0)],
                 },
+                grade: [
+                    {
+                        defaultColor: '#4a5361',
+                        hoverColor: '#4a5361',
+                    },
+                    {
+                        defaultColor: '#1160b0',
+                        hoverColor: '#1160b0',
+                    },
+                    {
+                        defaultColor: '#9379ca',
+                        hoverColor: '#9379ca',
+                    },
+                    {
+                        defaultColor: '#ab6157',
+                        hoverColor: '#ab6157',
+                    },
+                ],
                 ageColor: '#ffffee',
                 contentColor: '#eeeeee',
             },
@@ -625,6 +657,21 @@ const light = {
                 box: {
                     filters: ()=>[new Laya.GlowFilter("#b1b1b1", 8, 0, 0)],
                 },
+                grade: [
+                    {},
+                    {
+                        defaultColor: '#55fffe',
+                        hoverColor: '#55fffe',
+                    },
+                    {
+                        defaultColor: '#b17cff',
+                        hoverColor: '#b17cff',
+                    },
+                    {
+                        defaultColor: '#ffce45',
+                        hoverColor: '#ffce45',
+                    },
+                ],
                 ageColor: '#000000',
                 contentColor: '#000000',
             },

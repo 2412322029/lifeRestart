@@ -3537,10 +3537,10 @@ uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-v-transform@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/v-transform/-/v-transform-1.0.1.tgz#380dd837e3b14189ccc47aafa8e675601403f2f2"
-  integrity sha512-F1VBbBLoFkFdpxFiHCq5neSoBsfFPDbecye5+B5OjE05U0K2RcdZR7lFkziqo1WP4Do36lUjN5Ok/E6GLUJgiQ==
+v-transform@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/v-transform/-/v-transform-1.0.2.tgz#93f5be5e7ea6f070d544ab3d96569bace91c754d"
+  integrity sha512-oBl76Q/JWVvglT3yHujWj6uNS4QygAERhdcdPKHpd47+K9+gotBUvCrdiVnizLscLzsz8GGi/KlOwZHnm9STxA==
   dependencies:
     commander "^8.2.0"
     xlsx "^0.17.1"
