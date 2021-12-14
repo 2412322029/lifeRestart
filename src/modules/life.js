@@ -142,13 +142,14 @@ class Life {
     }
 
     doEvent(eventId) {
-        const { effect, next, description, postEvent } = this.#event.do(eventId, this.#property);
+        const { effect, next, description, postEvent, grade } = this.#event.do(eventId, this.#property);
         this.#property.change(this.PropertyTypes.EVT, eventId);
         this.#property.effect(effect);
         const content = {
             type: this.PropertyTypes.EVT,
             description,
             postEvent,
+            grade,
         }
         if(next) return [content, this.doEvent(next)].flat();
         return [content];

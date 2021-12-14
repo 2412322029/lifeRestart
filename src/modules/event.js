@@ -44,12 +44,12 @@ class Event {
     }
 
     do(eventId, property) {
-        const { effect, branch, event: description, postEvent } = this.get(eventId);
+        const { effect, branch, event: description, postEvent, grade } = this.get(eventId);
         if(branch)
             for(const [cond, next] of branch)
                 if(checkCondition(property, cond))
-                    return { effect, next, description };
-        return { effect, postEvent, description };
+                    return { effect, next, description, grade };
+        return { effect, postEvent, description, grade };
     }
 
 }
