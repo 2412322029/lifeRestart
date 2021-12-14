@@ -143,5 +143,6 @@ export default ({
     F_TalentConflict: 'Conflict with talent ({0})',
     F_TalentSelectLimit: 'Talent select limit {0}',
     F_TalentSelectNotComplect: 'Please select {0} talent',
-    F_PropertyPointLeft: 'You have left {0} property point'
+    F_PropertyPointLeft: 'You have left {0} property point',
+    F_TalentReplace: 'Talent replace [{source.name}] -> [{target.name}]',
 });
