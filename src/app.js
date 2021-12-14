@@ -10,6 +10,25 @@ globalThis.UI =
 UIManager;
 
 globalThis.$_ = utils;
+
+globalThis.goto = async tag => {
+    let url;
+    switch(tag) {
+        case 'github': url = 'https://github.com/VickScarlet/lifeRestart'; break;
+        case 'discord': url = 'https://discord.gg/U3qrf49NMQ'; break;
+        case 'sponsor_afd': url = 'https://afdian.net/@LifeRestart'; break;
+        case 'sponsor_ddf': url = 'https://dun.mianbaoduo.com/@vickscarlet'; break;
+    }
+    try {
+        if(Laya.Browser.onIOS) {
+            window.location.href = url;
+        } else {
+            window.open(url, '_blank');
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
 class App{
     constructor(){
         this.name = 'lifeRestart';
@@ -156,6 +175,7 @@ class App{
             dataSet=>Laya.promises.loader.load(`data/${dataSet}.json`, null, Laya.Loader.JSON),
         );
         await $ui.switchView(UI.pages.MAIN);
+
     }
 }
 
