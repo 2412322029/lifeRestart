@@ -41,9 +41,11 @@ export default class Property extends ui.view.DefaultTheme.PropertyUI {
 
     init({talents}) {
         this.listSelectedTalents.array = talents;
-        const talentIds = talents.map(talent => talent.id);
-        // core.talentReplace(talentIds);
-        this.#propertyPoints = core.getPropertyPoints(talentIds);
+        const replace = core.remake(talents.map(talent => talent.id));
+        if(replace.length > 0) {
+            $$event('message', [replace.map(v => ['F_TalentReplace', v])]);
+        }
+        this.#propertyPoints = core.getPropertyPoints();
         this.#propertyAllocateLimit = core.propertyAllocateLimit;
         this.labLeftPropertyPoint.text = this.#propertyPoints;
         this.#propertyAllocate = {
@@ -51,7 +53,6 @@ export default class Property extends ui.view.DefaultTheme.PropertyUI {
             [this.#types.INT]: 0,
             [this.#types.STR]: 0,
             [this.#types.MNY]: 0,
-            [this.#types.TLT]: talentIds,
         }
         this.updateAllocate();
     }

@@ -120,9 +120,14 @@ class App{
             $ui.popup(UI.popups.ACHIEVEMENT, {achievement});
         })
         $$on('message', ([message, ...args]) => {
-            $ui.popup(UI.popups.MESSAGE, {message: $_.format(
-                $lang[message], ...args
-            ) });
+            if(Array.isArray(message)) {
+                message = message.map(([m, ...a]) => $_.format($lang[m], ...a)) .join('\n');
+            } else {
+                message = $_.format(
+                    $lang[message], ...args
+                );
+            }
+            $ui.popup(UI.popups.MESSAGE, {message});
         })
     }
 

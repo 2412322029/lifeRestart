@@ -74,7 +74,7 @@ export default class CyberTrajectory extends ui.view.CyberTheme.CyberTrajectoryU
         this.#trajectoryItems = [];
         this.#isEnd = false;
         this.#talents = talents;
-        core.restart(propertyAllocate);
+        core.start(propertyAllocate);
         this.updateProperty();
         this.onNext();
     }

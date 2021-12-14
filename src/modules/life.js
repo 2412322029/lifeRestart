@@ -22,6 +22,7 @@ class Life {
     #propertyAllocateLimit;
     #defaultPropertys;
     #specialThanks;
+    #initialData;
 
     async initial(i18nLoad, commonLoad) {
         const [age, talents, events, achievements, specialThanks] = await Promise.all([
@@ -58,25 +59,28 @@ class Life {
         this.#property.config(propertyConfig);
     }
 
-    restart(allocation) {
-        const propertys = clone(this.#defaultPropertys);
-        for(const key in allocation) {
-            propertys[key] = clone(allocation[key]);
-        }
+    remake(talents) {
+        this.#initialData = clone(this.#defaultPropertys);
+        this.#initialData.TLT = clone(talents);
         this.#triggerTalents = {};
-        const contents = this.talentReplace(propertys.TLT);
-        this.#property.restart(propertys);
+        return this.talentReplace(this.#initialData.TLT);
+    }
+
+    start(allocation) {
+        for(const key in allocation) {
+            this.#initialData[key] = clone(allocation[key]);
+        }
+        this.#property.restart(this.#initialData);
         this.doTalent()
         this.#property.restartLastStep();
         this.#achievement.achieve(
             this.AchievementOpportunity.START,
             this.#property
-        )
-        return contents;
+        );
     }
 
-    getPropertyPoints(selectedTalentIds) {
-        return this.#defaultPropertyPoints + this.#talent.allocationAddition(selectedTalentIds);
+    getPropertyPoints() {
+        return this.#defaultPropertyPoints + this.#talent.allocationAddition(this.#initialData.TLT);
     }
 
     getTalentCurrentTriggerCount(talentId) {

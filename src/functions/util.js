@@ -83,10 +83,17 @@ function deepMapSet(target, source) {
     return target;
 }
 
+function deepGet(obj, path) {
+    for(const key of path.split('.')) {
+        if(!(key in obj)) return undefined;
+        obj = obj[key];
+    }
+    return obj;
+}
 
 function format(str, ...args) {
     const replace = set => (match, key) => {
-        const value = set[key];
+        const value = deepGet(set, key);
         switch(typeof value) {
             case 'object': return JSON.stringify(value);
             case 'boolean':

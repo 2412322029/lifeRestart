@@ -143,5 +143,6 @@ export default ({
     F_TalentConflict: '与已选的「{0}」天赋冲突',
     F_TalentSelectLimit: '只能选 {0} 个天赋',
     F_TalentSelectNotComplect: '要选满{0}个天赋',
-    F_PropertyPointLeft: '你还有 {0} 属性点没有分配完'
+    F_PropertyPointLeft: '你还有 {0} 属性点没有分配完',
+    F_TalentReplace: '天赋替换【{source.name}】->【{target.name}】',
 });

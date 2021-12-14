@@ -53,7 +53,7 @@ export default class Trajectory extends ui.view.DefaultTheme.TrajectoryUI {
         this.#trajectoryItems = [];
         this.#isEnd = false;
         this.#talents = talents;
-        core.restart(propertyAllocate);
+        core.start(propertyAllocate);
         this.updateProperty();
         this.onNext();
     }
