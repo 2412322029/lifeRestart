@@ -66,8 +66,10 @@ export default class CyberTrajectory extends ui.view.CyberTheme.CyberTrajectoryU
     #isEnd;
     #trajectoryItems;
     #talents;
+    #enableExtend;
 
-    init({propertyAllocate, talents}) {
+    init({propertyAllocate, talents, enableExtend}) {
+        this.#enableExtend = enableExtend;
         this.boxParticle.visible = false;
         this.boxSpeed.visible = true;
         this.btnSummary.visible = false;
@@ -147,7 +149,7 @@ export default class CyberTrajectory extends ui.view.CyberTheme.CyberTrajectoryU
 
     onSummary() {
         const talents = this.#talents;
-        $ui.switchView(UI.pages.SUMMARY, {talents});
+        $ui.switchView(UI.pages.SUMMARY, { talents, enableExtend: this.#enableExtend });
     }
 
     get speed() {

@@ -15,7 +15,13 @@ export default class CyberCelebrity extends ui.view.CyberTheme.CelebrityUI {
         const vboxStates = item.getChildByName('vboxStates');
         const boxName = item.getChildByName('boxName');
         boxName.getChildByName('label').text = name;
-        vboxStates.getChildByName('label').text = $_.format($lang.F_PropertyStr, property);
+
+        const p = $_.clone(property);
+        for(const k in p)
+            if(Math.abs(p[k] - Math.PI) < 0.0000001)
+                p[k] = 'π';
+
+        vboxStates.getChildByName('label').text = $_.format($lang.F_PropertyStr, p);
         for(const t of talent) {
             const i = CyberCelebrity.#createComponent('boxTalent');
             i.getChildByName('label').text = $_.format($lang.F_TalentSelection, t);

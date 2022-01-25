@@ -16,7 +16,13 @@ export default class Celebrity extends ui.view.DefaultTheme.CelebrityUI {
         const vboxStates = item.getChildByName('vboxStates');
         const boxName = item.getChildByName('boxName');
         boxName.label = name;
-        vboxStates.label = $_.format($lang.F_PropertyStr, property);
+
+        const p = $_.clone(property);
+        for(const k in p)
+            if(Math.abs(p[k] - Math.PI) < 0.0000001)
+                p[k] = 'π';
+
+        vboxStates.label = $_.format($lang.F_PropertyStr, p);
         $_.deepMapSet(boxName, style.name);
         $_.deepMapSet(vboxStates, style.state);
         for(const t of talent) {

@@ -45,8 +45,10 @@ export default class Trajectory extends ui.view.DefaultTheme.TrajectoryUI {
     #isEnd;
     #trajectoryItems;
     #talents;
+    #enableExtend;
 
-    init({propertyAllocate, talents}) {
+    init({propertyAllocate, talents, enableExtend}) {
+        this.#enableExtend = enableExtend;
         this.boxParticle.visible = false;
         this.boxSpeed.visible = true;
         this.btnSummary.visible = false;
@@ -123,7 +125,7 @@ export default class Trajectory extends ui.view.DefaultTheme.TrajectoryUI {
 
     onSummary() {
         const talents = this.#talents;
-        $ui.switchView(UI.pages.SUMMARY, {talents});
+        $ui.switchView(UI.pages.SUMMARY, {talents, enableExtend: this.#enableExtend});
     }
 
     get speed() {

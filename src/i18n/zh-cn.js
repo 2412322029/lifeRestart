@@ -15,6 +15,8 @@ export default ({
     UI_Loading: '加载中...',
     UI_Error: '错误',
 
+    UI_BackupBtn: '上面没有效果就试试这个吧',
+
     UI_Colon: '：',
     UI_Times: '次',
     UI_Count: '个',

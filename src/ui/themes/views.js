@@ -171,6 +171,13 @@ const cyber = {
                         defaultColor: '#fc5531',
                         hoverColor: '#f28b54',
                     },
+                    btnBackup: {
+                        defaultColor: '#9c30cd',
+                        hoverColor: '#bf50fd',
+                        radius: 8,
+                        defaultLabel: '#ffffff',
+                        hoverLabel: '#ffffff',
+                    },
                 },
                 names: {
                     btnSmall: {
@@ -216,20 +223,20 @@ const dark = {
                 },
                 grade: [
                     {
-                        defaultColor: '#4a5361',
+                        defaultColor: '#464646',
                         hoverColor: '#4a5361',
                     },
                     {
-                        defaultColor: '#1160b0',
-                        hoverColor: '#1160b0',
+                        defaultColor: '#6495ed',
+                        hoverColor: '#87cefa',
                     },
                     {
-                        defaultColor: '#9379ca',
-                        hoverColor: '#9379ca',
+                        defaultColor: '#e2a7ff',
+                        hoverColor: '#e7beff',
                     },
                     {
-                        defaultColor: '#ab6157',
-                        hoverColor: '#ab6157',
+                        defaultColor: '#ffa07a',
+                        hoverColor: '#f7a989',
                     },
                 ],
                 ageColor: '#ffffee',
@@ -639,6 +646,13 @@ const dark = {
                         defaultColor: '#fc5531',
                         hoverColor: '#f28b54',
                     },
+                    btnBackup: {
+                        defaultColor: '#9c30cd',
+                        hoverColor: '#bf50fd',
+                        radius: 8,
+                        defaultLabel: '#ffffff',
+                        hoverLabel: '#ffffff',
+                    },
                 },
                 names: {
                     btnSmall: {
@@ -707,18 +721,21 @@ const light = {
                     lineWidth: 2,
                 },
                 grade: [
-                    {},
                     {
-                        defaultColor: '#55fffe',
-                        hoverColor: '#55fffe',
+                        defaultColor: '#ffffff',
+                        hoverColor: '#ededed',
                     },
                     {
-                        defaultColor: '#b17cff',
-                        hoverColor: '#b17cff',
+                        defaultColor: '#87cefa',
+                        hoverColor: '#6495ed',
                     },
                     {
-                        defaultColor: '#ffce45',
-                        hoverColor: '#ffce45',
+                        defaultColor: '#e7beff',
+                        hoverColor: '#e2a7ff',
+                    },
+                    {
+                        defaultColor: '#f7a989',
+                        hoverColor: '#ffa07a',
                     },
                 ],
                 ageColor: '#000000',
@@ -1125,6 +1142,13 @@ const light = {
                     btnWrite: {
                         defaultColor: '#fc5531',
                         hoverColor: '#f28b54',
+                    },
+                    btnBackup: {
+                        defaultColor: '#9c30cd',
+                        hoverColor: '#bf50fd',
+                        radius: 8,
+                        defaultLabel: '#ffffff',
+                        hoverLabel: '#ffffff',
                     },
                 },
                 names: {
