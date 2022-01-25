@@ -61,11 +61,11 @@ class Talent {
         return { grade, name, description };
     }
 
-    exclusive(talends, exclusiveId) {
-        const { exclusive } = this.get(exclusiveId);
-        if(!exclusive) return null;
-        for(const talent of talends) {
-            for(const e of exclusive) {
+    exclude(talents, excludeId) {
+        const { exclude } = this.get(excludeId);
+        if(!exclude) return null;
+        for(const talent of talents) {
+            for(const e of exclude) {
                 if(talent == e) return talent;
             }
         }
@@ -103,13 +103,14 @@ class Talent {
             let randomNumber = Math.floor(Math.random() * rate.total);
             if((randomNumber -= rate[3]) < 0) return 3;
             if((randomNumber -= rate[2]) < 0) return 2;
-            if((randomNumber -= rate[1]) < 0) return 1;
+            if((randomNumber -  rate[1]) < 0) return 1;
             return 0;
         }
 
         const talentList = {};
         for(const talentId in this.#talents) {
-            const { id, grade, name, description } = this.#talents[talentId];
+            const { id, grade, name, description, exclusive } = this.#talents[talentId];
+            if(!!exclusive) continue;
             if(id == include) {
                 include = { grade, name, description, id };
                 continue;
@@ -155,14 +156,14 @@ class Talent {
             if(replacement.grade) {
                 this.forEach(({id, grade})=>{
                     if(!replacement.grade[grade]) return;
-                    if(this.exclusive(talents, id)) return;
+                    if(this.exclude(talents, id)) return;
                     list.push([id, replacement.grade[grade]]);
                 })
             }
             if(replacement.talent) {
                 for(let id in replacement.talent) {
                     id = Number(id);
-                    if(this.exclusive(talents, id)) continue;
+                    if(this.exclude(talents, id)) continue;
                     list.push([id, replacement.talent[id]]);
                 }
             }

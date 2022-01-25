@@ -109,16 +109,17 @@ export default class CyberTrajectory extends ui.view.CyberTheme.CyberTrajectoryU
         if(isEnd) {
             this.boxSpeed.visible = false;
             this.btnSummary.visible = true;
+            Laya.timer.frameOnce(1,this,()=>{
+                this.panelTrajectory.scrollTo(0, this.panelTrajectory.contentHeight);
+            });
         }
-
+        this.panelTrajectory.scrollTo(0, this.panelTrajectory.contentHeight);
         this.renderTrajectory(age, content);
 
         if(age >= 100) {
             this.boxParticle.visible = true;
         }
-        Laya.timer.frameOnce(1, this, () => {
-            this.panelTrajectory.scrollTo(0, this.panelTrajectory.contentHeight);
-        });
+
         this.updateProperty();
     }
 
@@ -141,7 +142,7 @@ export default class CyberTrajectory extends ui.view.CyberTheme.CyberTrajectoryU
         );
         this.vboxTrajectory.addChild(item);
         this.#trajectoryItems.push(item);
-        this.#trajectoryItems.forEach((item, index) => item.y = index);
+        item.y = this.vboxTrajectory.height;
     }
 
     onSummary() {

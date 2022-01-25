@@ -9,6 +9,8 @@ const pages = {
     THANKS: 'THANKS',
     THEMES: 'THEMES',
     SAVELOAD: 'SAVELOAD',
+    MODE: 'MODE',
+    CELEBRITY: 'CELEBRITY'
 };
 
 const popups = {
@@ -28,6 +30,8 @@ const cyber = {
         [pages.THANKS]: "default/thanks",
         [pages.THEMES]: 'themes',
         [pages.SAVELOAD]: 'saveload',
+        [pages.MODE]: 'cyber/mode',
+        [pages.CELEBRITY]: 'cyber/celebrity',
     },
     popups: {
         [popups.ACHIEVEMENT]: "cyber/popup/achievementPopup",
@@ -57,20 +61,22 @@ const cyber = {
             ],
             gradeBlk: [
                 {
-                    defaultColor: '#cccccc',
-                    hoverColor: '#cccccc',
+                    visible: false,
                 },
                 {
                     defaultColor: '#55fffe',
                     hoverColor: '#55fffe',
+                    visible: true,
                 },
                 {
                     defaultColor: '#b17cff',
                     hoverColor: '#b17cff',
+                    visible: true,
                 },
                 {
                     defaultColor: '#ffce45',
                     hoverColor: '#ffce45',
+                    visible: true,
                 },
             ]
         },
@@ -190,6 +196,8 @@ const dark = {
         [pages.THANKS]: "default/thanks",
         [pages.THEMES]: 'themes',
         [pages.SAVELOAD]: 'saveload',
+        [pages.MODE]: 'default/mode',
+        [pages.CELEBRITY]: 'default/celebrity',
     },
     popups: {
         [popups.ACHIEVEMENT]: "default/popup/achievementPopup",
@@ -201,7 +209,10 @@ const dark = {
             defaultFontColor: '#eeeeee',
             trajectoryItem: {
                 box: {
-                    filters: ()=>[new Laya.GlowFilter("#eeeeee", 8, 0, 0)],
+                    // filters: ()=>[new Laya.GlowFilter("#eeeeee", 8, 0, 0)],
+                    defaultStroke: '#eeeeee',
+                    hoverStroke: '#eeeeee',
+                    lineWidth: 2,
                 },
                 grade: [
                     {
@@ -411,7 +422,28 @@ const dark = {
                     lineWidth: 4,
                     radius: 0,
                 }
-            ]
+            ],
+            characterItem: {
+                name: {
+                    defaultColor: '#393e46',
+                    defaultStroke: '#eeeeee',
+                    defaultLabel: '#eeeeee',
+                    hoverColor: '#ff7878',
+                    hoverStroke: '#eeeeee',
+                    hoverLabel: '#eeeeee',
+                    lineWidth: 2,
+                },
+                state: {
+                    defaultColor: '#393e46',
+                    defaultStroke: '#eeeeee',
+                    defaultLabel: '#eeeeee',
+                    hoverColor: '#393e46',
+                    hoverStroke: '#eeeeee',
+                    hoverLabel: '#eeeeee',
+                    lineWidth: 2,
+                },
+                propertyColor: '#000000',
+            },
         },
         class: {
             btn_main: {
@@ -616,6 +648,18 @@ const dark = {
                     }
                 }
             },
+            [pages.MODE]: {
+                names: {
+                    font_default: 'font_default',
+                    btn: 'btn_main',
+                }
+            },
+            [pages.CELEBRITY]: {
+                vars: {
+                    btnRetry: 'btn_main',
+                    btnNext: 'btn_main',
+                }
+            },
         },
         popups: {
             [popups.ACHIEVEMENT]: {
@@ -644,6 +688,8 @@ const light = {
         [pages.THANKS]: "default/thanks",
         [pages.THEMES]: 'themes',
         [pages.SAVELOAD]: 'saveload',
+        [pages.MODE]: 'default/mode',
+        [pages.CELEBRITY]: 'default/celebrity',
     },
     popups: {
         [popups.ACHIEVEMENT]: "default/popup/achievementPopup",
@@ -655,7 +701,10 @@ const light = {
             defaultFontColor: '#000000',
             trajectoryItem: {
                 box: {
-                    filters: ()=>[new Laya.GlowFilter("#b1b1b1", 8, 0, 0)],
+                    // filters: ()=>[new Laya.GlowFilter("#b1b1b1", 8, 0, 0)],
+                    defaultStroke: '#b1b1b1',
+                    hoverStroke: '#b1b1b1',
+                    lineWidth: 2,
                 },
                 grade: [
                     {},
@@ -860,7 +909,28 @@ const light = {
                     lineWidth: 4,
                     radius: 0,
                 }
-            ]
+            ],
+            characterItem: {
+                name: {
+                    defaultColor: '#ffffff',
+                    defaultStroke: '#cccccc',
+                    defaultLabel: '#000000',
+                    hoverColor: '#ff7878',
+                    hoverStroke: '#cccccc',
+                    hoverLabel: '#ffffff',
+                    lineWidth: 2,
+                },
+                state: {
+                    defaultColor: '#ffffff',
+                    defaultStroke: '#cccccc',
+                    defaultLabel: '#000000',
+                    hoverColor: '#ffffff',
+                    hoverStroke: '#cccccc',
+                    hoverLabel: '#000000',
+                    lineWidth: 2,
+                },
+                propertyColor: '#000000',
+            },
         },
         class: {
             btn_main: {
@@ -1063,6 +1133,18 @@ const light = {
                         defaultLabel: '#ffffff',
                         hoverLabel: '#ffffff',
                     }
+                }
+            },
+            [pages.MODE]: {
+                names: {
+                    font_default: 'font_default',
+                    btn: 'btn_main',
+                }
+            },
+            [pages.CELEBRITY]: {
+                vars: {
+                    btnRetry: 'btn_main',
+                    btnNext: 'btn_main',
                 }
             },
         },

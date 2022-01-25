@@ -1456,5 +1456,23 @@
         "condition": "TLT?[1136]",
         "hide": 1,
         "opportunity": "START"
+    },
+    "263": {
+        "id": 263,
+        "name": "经 典 老 歌",
+        "description": "自 投 罗 网",
+        "grade": 2,
+        "condition": "TLT?[2036]",
+        "hide": 1,
+        "opportunity": "START"
+    },
+    "264": {
+        "id": 264,
+        "name": "莎比",
+        "description": "集齐四大悲剧",
+        "grade": 2,
+        "condition": "(ATLT?[2028])&(ATLT?[2029])&(ATLT?[2030])&(ATLT?[2031])",
+        "hide": 0,
+        "opportunity": "START"
     }
 }

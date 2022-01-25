@@ -411,7 +411,7 @@ class Property {
 
     lsget(key) {
         const data = localStorage.getItem(key);
-        if(data === null) return;
+        if(data === null || data === 'undefined') return;
         return JSON.parse(data);
     }
 

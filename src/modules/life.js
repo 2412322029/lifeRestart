@@ -3,6 +3,7 @@ import Property from './property.js';
 import Event from './event.js';
 import Talent from './talent.js';
 import Achievement from './achievement.js';
+import Character from './character.js';
 
 class Life {
     constructor() {
@@ -10,12 +11,14 @@ class Life {
         this.#event = new Event();
         this.#talent = new Talent();
         this.#achievement = new Achievement();
+        this.#character = new Character();
     }
 
     #property;
     #event;
     #talent;
     #achievement;
+    #character;
     #triggerTalents;
     #defaultPropertyPoints;
     #talentSelectLimit;
@@ -25,11 +28,12 @@ class Life {
     #initialData;
 
     async initial(i18nLoad, commonLoad) {
-        const [age, talents, events, achievements, specialThanks] = await Promise.all([
+        const [age, talents, events, achievements, characters, specialThanks] = await Promise.all([
             i18nLoad('age'),
             i18nLoad('talents'),
             i18nLoad('events'),
             i18nLoad('achievement'),
+            i18nLoad('character'),
             commonLoad('specialthanks'),
         ]);
         this.#specialThanks = specialThanks;
@@ -39,8 +43,8 @@ class Life {
             [this.PropertyTypes.TEVT]: this.#event.initial({events}),
             [this.PropertyTypes.TTLT]: this.#talent.initial({talents}),
         };
-
         this.#property.initial({age, total});
+        this.#character.initial({characters});
     }
 
     config({
@@ -50,6 +54,7 @@ class Life {
         defaultPropertys = {}, // default propertys
         talentConfig, // config for talent
         propertyConfig, // config for property
+        characterConfig, // config for character
     } = {}) {
         this.#defaultPropertyPoints = defaultPropertyPoints;
         this.#talentSelectLimit = talentSelectLimit;
@@ -57,6 +62,7 @@ class Life {
         this.#defaultPropertys = defaultPropertys;
         this.#talent.config(talentConfig);
         this.#property.config(propertyConfig);
+        this.#character.config(characterConfig);
     }
 
     remake(talents) {
@@ -173,12 +179,22 @@ class Life {
         );
     }
 
+    characterRandom() {
+        const characters = this.#character.random();
+        characters.forEach(
+            v=>v.talent=v.talent.map(
+                id=>this.#talent.get(id)
+            )
+        );
+        return characters;
+    }
+
     talentExtend(talentId) {
         this.#property.set(this.PropertyTypes.EXT, talentId);
     }
 
-    exclusive(talents, exclusive) {
-        return this.#talent.exclusive(talents, exclusive);
+    exclude(talents, exclusive) {
+        return this.#talent.exclude(talents, exclusive);
     }
 
     #getJudges(...types) {

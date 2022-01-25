@@ -88,16 +88,17 @@ export default class Trajectory extends ui.view.DefaultTheme.TrajectoryUI {
         if(isEnd) {
             this.boxSpeed.visible = false;
             this.btnSummary.visible = true;
+            Laya.timer.frameOnce(1,this,()=>{
+                this.panelTrajectory.scrollTo(0, this.panelTrajectory.contentHeight);
+            });
         }
-
+        this.panelTrajectory.scrollTo(0, this.panelTrajectory.contentHeight);
         this.renderTrajectory(age, content);
 
         if(age >= 100) {
             this.boxParticle.visible = true;
         }
-        Laya.timer.frameOnce(1, this, () => {
-            this.panelTrajectory.scrollTo(0, this.panelTrajectory.contentHeight);
-        });
+
         this.updateProperty();
     }
 
@@ -117,7 +118,7 @@ export default class Trajectory extends ui.view.DefaultTheme.TrajectoryUI {
         item.grade(content[content.length - 1].grade);
         this.vboxTrajectory.addChild(item);
         this.#trajectoryItems.push(item);
-        this.#trajectoryItems.forEach((item, index) => item.y = index);
+        item.y = this.vboxTrajectory.height;
     }
 
     onSummary() {

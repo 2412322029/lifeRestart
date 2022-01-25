@@ -1,3 +1,4 @@
+import './ui/laya.patch.js';
 import './ui/runtime.js';
 import './ui/pluginFunction.js'
 import './ui/promisesLaya.js'

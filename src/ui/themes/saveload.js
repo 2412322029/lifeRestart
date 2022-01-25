@@ -7,22 +7,22 @@ export default class SaveLoad extends ui.view.SaveLoadUI {
         });
         this.btnRead.on(Laya.Event.CLICK, this, async ()=>{
             const result = await $$copy(this.input.text = this.data);
-            $$event('message', [result? 'UI_CopySuccess': 'UI_CopyFaild']);
+            $$event('message', [result? 'UI_CopySuccess': 'UI_CopyFailed']);
         });
         this.btnWrite.on(Laya.Event.CLICK, this, async ()=>{
             const text = await $$read();
             if(text == false) {
                 this.data = [
                     this.input.text,
-                    'UI_PasteFaildDecodeSuccess',
-                    'UI_PasteFaildDecodeFaild'
+                    'UI_PasteFailedDecodeSuccess',
+                    'UI_PasteFailedDecodeFailed'
                 ];
             } else {
                 this.input.text = text;
                 this.data = [
                     text,
                     'UI_PasteSuccessDecodeSuccess',
-                    'UI_PasteSuccessDecodeFaild'
+                    'UI_PasteSuccessDecodeFailed'
                 ];
             }
         });
@@ -79,7 +79,7 @@ export default class SaveLoad extends ui.view.SaveLoadUI {
         return JSON.stringify(data);
     }
 
-    set data([v, success = 'UI_LoadSuccess', faild = 'UI_LoadFaild']) {
+    set data([v, success = 'UI_LoadSuccess', Failed = 'UI_LoadFailed']) {
         try {
             const data = JSON.parse(v);
             for(const key in data)
@@ -89,7 +89,7 @@ export default class SaveLoad extends ui.view.SaveLoadUI {
             this.btnClose.event(Laya.Event.CLICK);
         } catch (e) {
             console.error(e);
-            $$event('message', [faild]);
+            $$event('message', [Failed]);
         }
     }
 }

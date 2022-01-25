@@ -5,7 +5,10 @@
         "effect": {
             "LIF": -1
         },
-        "NoRandom": 1
+        "NoRandom": 1,
+        "branch": [
+            "TLT?[2024]:11504"
+        ]
     },
     "10001": {
         "id": 10001,
@@ -6275,7 +6278,7 @@
     },
     "10770": {
         "id": 10770,
-        "event": "【绝密消息】你捡到一张纸条，上面写着“快20个群都加满了，不加了不加了，关注策划的贴吧号神户小德，或者B站神户艾兰德吧，不要私信了求求了“",
+        "event": "【绝密消息】快20个群都加满了，不加了不加了，关注策划的贴吧号神户小德，或者B站账号神户艾兰德吧",
         "grade": 2,
         "include": "TLT?[1112]",
         "exclude": "EVT?[10770]"
@@ -6289,7 +6292,7 @@
     },
     "10772": {
         "id": 10772,
-        "event": "【绝密消息】据说按下特别感谢按钮，再按下打赏按钮，可以在让自己的名字出现在感谢名单上（雾",
+        "event": "【绝密消息】现在BUG很多，希望大家遇到了BUG可以通知我们",
         "grade": 2,
         "include": "TLT?[1112]",
         "exclude": "EVT?[10772,10771]"
@@ -6310,7 +6313,7 @@
     },
     "10775": {
         "id": 10775,
-        "event": "【绝密消息】考古学家发现一粒古代的药丸，看上去金灿灿的，不像凡物。",
+        "event": "【绝密消息】后续我们想制作可以让玩家自己上传事件、自己设计天赋的编辑器，不过还处于新建文件夹状态（",
         "grade": 2,
         "include": "TLT?[1112]",
         "exclude": "EVT?[10775]"
@@ -6338,7 +6341,7 @@
     },
     "10779": {
         "id": 10779,
-        "event": "【绝密消息】遗传学家说，最好的天赋只有0.1%的几率出现，其次的天赋是1%，比较好的天赋是10%。",
+        "event": "【绝密消息】不会吧不会吧，2022年了居然还有人在人生重开？",
         "grade": 2,
         "include": "TLT?[1112]",
         "exclude": "EVT?[10779]"
@@ -9904,7 +9907,7 @@
         "id": 11296,
         "event": "高超的洞察力使你发现：现实世界是虚拟的。",
         "grade": 3,
-        "include": "(INT>10)&(EVT?[11288])",
+        "include": "((INT>10)&(EVT?[11288]))|(TLT?[2022])",
         "exclude": "EVT?[11296]",
         "branch": [
             "INT>10:21296"
@@ -11351,6 +11354,22 @@
         "event": "为防范星际入侵和核事故带来的变异生物，几大国牵头成立地球和平联合组织。",
         "include": "EVT?[10010]",
         "exclude": "EVT?[11502]"
+    },
+    "11503": {
+        "id": 11503,
+        "event": "We were no strangers to love\r\nYou know the rules and so do I\r\nA full commitments what I'm thinking of\r\nYou wouldn't get this from any other guy\r\nI just wanna tell you how I'm feeling\r\nGotta make you understand\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nWe've know each other for so long\r\nYour hearts been aching\r\nBut you're too shy to say it\r\nInside we both know what's been going on\r\nWe know the game and were gonna play it\r\nAnd if you ask me how I'm feeling\r\nDon't tell me youre too blind to see\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\n（Give you up. give you up）\r\n（Give you up, give you up）\r\nNever gonna give\r\nNever gonna give （give you up）\r\nNever gonna give\r\nNever gonna give （give you up）\r\nWe've know each other for so long\r\nYour hearts been aching\r\nBut you're too shy to say it\r\nInside we both know what's been going on\r\nWe know the game and were gonna play it\r\nI just wanna tell you how I'm feeling\r\nGotta make you understand\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you",
+        "effect": {
+            "LIF": -1
+        },
+        "include": "TLT?[2036]"
+    },
+    "11504": {
+        "id": 11504,
+        "event": "因为得过诺贝尔奖，你被复活了。",
+        "effect": {
+            "LIF": 1
+        },
+        "NoRandom": 1
     },
     "20007": {
         "id": 20007,
