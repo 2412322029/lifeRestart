@@ -463,6 +463,16 @@ const dark = {
                 lineWidth: 2,
                 radius: 4,
             },
+            btn_main2: {
+                defaultColor: '#ffa07a',
+                defaultStroke: '#f8f8f8',
+                defaultLabel: '#3b3b3b',
+                hoverColor: '#ff7878',
+                hoverStroke: '#f8f8f8',
+                hoverLabel: '#eeeeee',
+                lineWidth: 2,
+                radius: 4,
+            },
             btn_small: {
                 defaultColor: '#5865f2',
                 defaultStroke: '#eeeeee',
@@ -514,7 +524,7 @@ const dark = {
             [pages.PROPERTY]: {
                 vars: {
                     btnRandomAllocate: 'btn_main',
-                    btnNext: 'btn_main',
+                    btnNext: 'btn_main2',
                     title: 'title',
                 },
                 names: {
@@ -671,7 +681,7 @@ const dark = {
             [pages.CELEBRITY]: {
                 vars: {
                     btnRetry: 'btn_main',
-                    btnNext: 'btn_main',
+                    btnNext: 'btn_main2',
                 }
             },
         },
@@ -960,6 +970,16 @@ const light = {
                 lineWidth: 2,
                 radius: 4,
             },
+            btn_main2: {
+                defaultColor: '#f7a989',
+                defaultStroke: '#f8f8f8',
+                defaultLabel: '#ffffff',
+                hoverColor: '#ff7878',
+                hoverStroke: '#f8f8f8',
+                hoverLabel: '#ffffff',
+                lineWidth: 2,
+                radius: 4,
+            },
             btn_small: {
                 defaultColor: '#5865f2',
                 defaultStroke: '#eeeeee',
@@ -1011,7 +1031,7 @@ const light = {
             [pages.PROPERTY]: {
                 vars: {
                     btnRandomAllocate: 'btn_main',
-                    btnNext: 'btn_main',
+                    btnNext: 'btn_main2',
                     title: 'title',
                 },
                 names: {
@@ -1168,7 +1188,7 @@ const light = {
             [pages.CELEBRITY]: {
                 vars: {
                     btnRetry: 'btn_main',
-                    btnNext: 'btn_main',
+                    btnNext: 'btn_main2',
                 }
             },
         },
