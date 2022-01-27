@@ -141,9 +141,14 @@ export default ({
     UI_CelebrityMode: 'Celebrity',
     UI_CelebrityModeDescription: 'Past life is celebrity\nRebirth to modern',
     UI_AllNot: '↻All Not',
+    UI_UniqueWaTaShi: 'Unique of mine',
+    UI_UniqueWaTaShiContent: '\nUnique character card different from other 60 million player\nAll property, All talent, All random\nAll has only one chance',
+    UI_GenerateNow: 'Generate Now',
+
 
     M_NoRank: 'There is no rank',
     M_PleaseSelectOne: 'Please Select One',
+    M_UnGenerate: 'Unique Character no generate',
     M_DisableExtendTalent: 'Celebrity mode can\'t extends talent',
 
     F_RemakeTimes: 'Remake {0} Times',

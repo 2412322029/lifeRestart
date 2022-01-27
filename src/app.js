@@ -160,11 +160,7 @@ class App{
         globalThis.$ui = UIManager.getInstance();
 
         if(theme=='default') {
-            if(!localStorage.getItem('__')) {
-                localStorage.setItem('__', 1);
-                localStorage.setItem('theme', 'cyber');
-            }
-            theme = localStorage.getItem('theme');
+            theme = localStorage.getItem('theme') || 'default';
         }
 
         $ui.theme = theme;

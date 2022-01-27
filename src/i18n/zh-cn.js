@@ -143,10 +143,13 @@ export default ({
     UI_CelebrityMode: '名人模式',
     UI_CelebrityModeDescription: '前世是古代名人\n重开到了现代',
     UI_AllNot: '↻都不是',
-
+    UI_UniqueWaTaShi: '独一无二的我',
+    UI_UniqueWaTaShiContent: '\n6000万玩家中独一无二的角色卡\n所有属性 所有天赋 随机生成\n 每人只能生成一次',
+    UI_GenerateNow: '立即生成',
 
     M_NoRank: '别卷了，没有排行榜',
     M_PleaseSelectOne: '请选择一个名人',
+    M_UnGenerate: '独一无二的我还没有生成',
     M_DisableExtendTalent: '名人模式不能继承天赋',
 
     F_RemakeTimes: '已重开{0}次',
